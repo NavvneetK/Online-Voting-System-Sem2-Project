@@ -622,34 +622,38 @@ class MainPage(tk.Frame):
 
         # Create a frame for the content with border
         content_frame = tk.Frame(self, bg="#f0f0f0", bd=2, relief="solid")
-        content_frame.place(relx=0.025, rely=0.4, anchor=tk.W, relwidth=0.38, relheight=0.4)
+        content_frame.place(relx=0.025, rely=0.5, anchor=tk.W, relwidth=0.38, relheight=0.4)
 
-        # # Label for the title with left alignment
-        label = tk.Label(content_frame, text="Welcome to Online Voting System", font=("Helvetica", 20), bg="#f0f0f0", fg="black")
-        label.place(relx=0.1, rely=0.15, anchor=tk.W)
+        # Title Label
+        title_label = tk.Label(content_frame, text="Welcome to PyElect", font=("Helvetica", 20, "bold"), 
+                               bg="#f0f0f0", fg="black")
+        title_label.place(relx=0.5, rely=0.1, anchor=tk.CENTER)
 
-        # Login buttons
-        button_y_offset = 0.3
-        button_spacing = 10
+        subtitle_label = tk.Label(content_frame, text="An online voting system", font=("Helvetica", 12, "italic"), 
+                                  bg="#f0f0f0", fg="black")
+        subtitle_label.place(relx=0.5, rely=0.2, anchor=tk.CENTER)
 
+        # Buttons and Register Section
+        button_spacing = 0.15
         login_button_user = tk.Button(content_frame, text="Login as Voter", 
                                       command=self.open_login_window_voter, 
                                       bg="#007bff", fg="white", font=("Helvetica", 12))
-        login_button_user.place(relx=0.28, rely=button_y_offset, anchor=tk.W)
+        login_button_user.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
         login_button_admin = tk.Button(content_frame, text="Login as Admin", 
                                        command=self.open_login_window_admin, 
                                        bg="#007bff", fg="white", font=("Helvetica", 12))
-        login_button_admin.place(relx=0.28, rely=button_y_offset + 0.15, anchor=tk.W)
+        login_button_admin.place(relx=0.5, rely=0.55, anchor=tk.CENTER)
 
         # Register message and button
-        register_message = tk.Label(content_frame, text="Don't have an account? Register here:", bg="#f0f0f0", fg="black", font=("Helvetica", 12))
-        register_message.place(relx=0.16, rely=button_y_offset + 0.3, anchor=tk.W)
+        register_message = tk.Label(content_frame, text="Don't have an account? Register here:", bg="#f0f0f0", 
+                                    fg="black", font=("Helvetica", 12))
+        register_message.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 
         register_button = tk.Button(content_frame, text="Register", 
                                     command=self.open_login_window_register, 
                                     bg="#28a745", fg="white", font=("Helvetica", 12))
-        register_button.place(relx=0.3, rely=button_y_offset + 0.4, anchor=tk.W)
+        register_button.place(relx=0.5, rely=0.85, anchor=tk.CENTER)
 
     def open_login_window_voter(self):
         login_window = LoginPageVoter(self)
@@ -659,7 +663,7 @@ class MainPage(tk.Frame):
 
     def open_login_window_register(self):
         login_window = LoginPageRegister(self)
-  
+
 class SampleApp(tk.Tk):
     def __init__(self):
         super().__init__()
